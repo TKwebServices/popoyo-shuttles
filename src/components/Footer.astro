@@ -1,0 +1,169 @@
+---
+---
+
+<footer class="footer">
+	<div class="footer-container">
+		<div class="footer-content">
+			<div class="footer-section">
+				<h3>Popoyo Shuttles</h3>
+				<p>Reliable private shuttle service in Popoyo, Nicaragua</p>
+			</div>
+			<div class="footer-section">
+				<h4>Contact</h4>
+				<p>
+					<a href="https://wa.me/19022137109?text=Hi!%20I'd%20like%20to%20book%20a%20shuttle%20service." target="_blank" rel="noopener noreferrer">
+						WhatsApp: +1 (902) 213-7109
+					</a>
+				</p>
+			</div>
+			<div class="footer-section">
+				<h4>Services</h4>
+				<ul>
+					<li>Airport Transfers</li>
+					<li>Point-to-Point Rides</li>
+					<li>24/7 Availability</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; {new Date().getFullYear()} Popoyo Shuttles. All rights reserved.</p>
+			<p class="footer-network">
+				Part of the <a href="https://popoyolist.com" target="_blank" rel="noopener noreferrer" class="footer-link">Popoyo List</a> Network.
+			</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+		color: #ffffff;
+		margin-top: var(--spacing-3xl);
+		padding: var(--spacing-2xl) 0 var(--spacing-lg);
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.footer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+	}
+	
+	.footer-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 var(--spacing-lg);
+		position: relative;
+		z-index: 1;
+	}
+	
+	.footer-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: var(--spacing-xl);
+		margin-bottom: var(--spacing-xl);
+	}
+	
+	.footer-section h3 {
+		margin-bottom: var(--spacing-md);
+		font-size: 1.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, #ffffff, #cbd5e1);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	.footer-section h4 {
+		margin-bottom: var(--spacing-sm);
+		font-size: 1.2rem;
+		font-weight: 700;
+		color: #ffffff;
+	}
+	
+	.footer-section p {
+		color: rgba(255, 255, 255, 0.75);
+		margin-bottom: var(--spacing-sm);
+		line-height: 1.7;
+	}
+	
+	.footer-section a {
+		color: rgba(255, 255, 255, 0.75);
+		transition: all 0.3s ease;
+		font-weight: 500;
+	}
+	
+	.footer-section a:hover {
+		color: #ffffff;
+		transform: translateX(4px);
+	}
+	
+	.footer-section ul {
+		list-style: none;
+	}
+	
+	.footer-section ul li {
+		color: rgba(255, 255, 255, 0.75);
+		margin-bottom: var(--spacing-sm);
+		line-height: 1.7;
+		position: relative;
+		padding-left: var(--spacing-md);
+	}
+	
+	.footer-section ul li::before {
+		content: '→';
+		position: absolute;
+		left: 0;
+		color: var(--color-primary-light);
+		font-weight: 600;
+	}
+	
+	.footer-bottom {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: var(--spacing-lg);
+		text-align: center;
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.95rem;
+	}
+	
+	.footer-network {
+		margin-top: var(--spacing-sm);
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+	}
+	
+	.footer-link {
+		color: var(--color-primary-light);
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+	}
+	
+	.footer-link:hover {
+		color: #ffffff;
+		text-decoration: underline;
+	}
+	
+	@media (max-width: 768px) {
+		.footer {
+			padding: var(--spacing-xl) 0 var(--spacing-md);
+			margin-top: var(--spacing-2xl);
+		}
+		
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-lg);
+		}
+		
+		.footer-section h3 {
+			font-size: 1.35rem;
+		}
+	}
+</style>
+

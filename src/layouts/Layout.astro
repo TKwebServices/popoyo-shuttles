@@ -1,0 +1,125 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = 'Popoyo Shuttles - Private Shuttle Service in Nicaragua',
+	description = 'Reliable private shuttle service in Popoyo, Nicaragua. Book your ride to Managua Airport, Costa Esmeralda, San Juan del Sur, and more. Pay cash on arrival, 24/7 availability.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content="Popoyo, Nicaragua, shuttle service, airport transfer, private transport, taxi, Managua Airport" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<style is:global>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			:root {
+				--color-primary: #3b82f6;
+				--color-primary-dark: #2563eb;
+				--color-primary-light: #60a5fa;
+				--color-success: #10b981;
+				--color-success-dark: #059669;
+				--color-text: #111827;
+				--color-text-light: #6b7280;
+				--color-text-lighter: #9ca3af;
+				--color-bg: #ffffff;
+				--color-bg-light: #f8fafc;
+				--color-bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				--color-border: #e5e7eb;
+				--spacing-xs: 0.5rem;
+				--spacing-sm: 1rem;
+				--spacing-md: 1.5rem;
+				--spacing-lg: 2rem;
+				--spacing-xl: 3rem;
+				--spacing-2xl: 5rem;
+				--spacing-3xl: 6rem;
+				--border-radius: 0.75rem;
+				--border-radius-lg: 1rem;
+				--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+				--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+				--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+				--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+			}
+			
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Oxygen, Ubuntu, Cantarell, sans-serif;
+				color: var(--color-text);
+				background-color: var(--color-bg);
+				line-height: 1.7;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			
+			img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+			}
+			
+			a {
+				color: var(--color-primary);
+				text-decoration: none;
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+			
+			a:hover {
+				color: var(--color-primary-dark);
+			}
+			
+			button {
+				font-family: inherit;
+				cursor: pointer;
+				border: none;
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+				line-height: 1.2;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+			}
+		</style>
+	</head>
+	<body>
+		<Navbar />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+

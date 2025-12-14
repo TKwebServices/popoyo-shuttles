@@ -1,0 +1,203 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+	destination: string;
+	price: string;
+	duration?: string;
+	distance?: string;
+	description?: string;
+}
+
+const { destination, price, duration, distance, description } = Astro.props;
+const whatsappMessage = destination === 'Everywhere Else' 
+	? `Hi! I'd like to get a quote for a shuttle service to a destination not listed on your site.`
+	: `Hi! I'd like to book a shuttle to ${destination}.`;
+---
+
+<div class="rate-card">
+	<div class="rate-card-header">
+		<h3 class="rate-card-destination">{destination}</h3>
+		<div class="rate-card-price">{price}</div>
+	</div>
+	{description && <p class="rate-card-description">{description}</p>}
+	{(duration || distance) && (
+		<div class="rate-card-details">
+			{duration && (
+				<div class="rate-card-detail">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="detail-icon">
+						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+					</svg>
+					<span>{duration}</span>
+				</div>
+			)}
+			{distance && (
+				<div class="rate-card-detail">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="detail-icon">
+						<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+					</svg>
+					<span>{distance}</span>
+				</div>
+			)}
+		</div>
+	)}
+	<div class="rate-card-action">
+		<WhatsAppButton message={whatsappMessage} label={destination === 'Everywhere Else' ? 'Get Quote' : 'Book Now'} />
+	</div>
+</div>
+
+<style>
+	.rate-card {
+		background: var(--color-bg);
+		border: 2px solid var(--color-border);
+		border-radius: var(--border-radius-lg);
+		padding: var(--spacing-md);
+		display: flex;
+		flex-direction: column;
+		box-shadow: var(--shadow-md);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.rate-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.3s ease;
+	}
+	
+	.rate-card:hover {
+		box-shadow: var(--shadow-xl);
+		transform: translateY(-6px);
+		border-color: var(--color-primary-light);
+	}
+	
+	.rate-card:hover::before {
+		transform: scaleX(1);
+	}
+	
+	.rate-card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: var(--spacing-sm);
+		gap: var(--spacing-sm);
+		padding-bottom: var(--spacing-sm);
+		border-bottom: 1px solid var(--color-border);
+	}
+	
+	.rate-card-destination {
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0;
+		flex: 1;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+	}
+	
+	.rate-card-price {
+		font-size: 1.65rem;
+		font-weight: 800;
+		background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		white-space: nowrap;
+		letter-spacing: -0.02em;
+	}
+	
+	.rate-card-description {
+		color: var(--color-text-light);
+		font-size: 0.9rem;
+		margin: 0 0 var(--spacing-sm) 0;
+		line-height: 1.6;
+	}
+	
+	.rate-card-details {
+		display: flex;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+		padding: var(--spacing-sm);
+		background: var(--color-bg-light);
+		border-radius: var(--border-radius);
+	}
+	
+	.rate-card-detail {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		font-size: 0.85rem;
+		color: var(--color-text-light);
+		font-weight: 500;
+	}
+	
+	.detail-icon {
+		width: 16px;
+		height: 16px;
+		color: var(--color-primary);
+		flex-shrink: 0;
+	}
+	
+	.rate-card-action {
+		margin-top: auto;
+		padding-top: var(--spacing-sm);
+	}
+	
+	@media (max-width: 768px) {
+		.rate-card {
+			padding: var(--spacing-xs) var(--spacing-sm);
+		}
+		
+		.rate-card-destination {
+			font-size: 0.95rem;
+			line-height: 1.2;
+		}
+		
+		.rate-card-price {
+			font-size: 1.35rem;
+		}
+		
+		.rate-card-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--spacing-xs);
+			margin-bottom: var(--spacing-xs);
+			padding-bottom: var(--spacing-xs);
+		}
+		
+		.rate-card-description {
+			font-size: 0.85rem;
+			line-height: 1.4;
+			margin: 0 0 var(--spacing-xs) 0;
+		}
+		
+		.rate-card-details {
+			gap: var(--spacing-sm);
+			margin-bottom: var(--spacing-sm);
+			padding: var(--spacing-xs);
+		}
+		
+		.rate-card-detail {
+			font-size: 0.8rem;
+			gap: 0.25rem;
+		}
+		
+		.detail-icon {
+			width: 14px;
+			height: 14px;
+		}
+		
+		.rate-card-action {
+			padding-top: var(--spacing-xs);
+		}
+	}
+</style>
+

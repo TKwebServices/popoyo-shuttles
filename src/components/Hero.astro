@@ -1,0 +1,178 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section class="hero">
+	<div class="hero-container">
+		<div class="hero-content">
+			<h1 class="hero-title">Popoyo Shuttles</h1>
+			<p class="hero-subtitle">Reliable Private Shuttle Service in Nicaragua</p>
+			<p class="hero-description">
+				Get where you need to go safely and comfortably. From airport transfers to scenic destinations, 
+				we provide professional shuttle services throughout Popoyo and beyond.
+			</p>
+			<div class="hero-trust-signals">
+				<div class="trust-signal">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="trust-icon">
+						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+					</svg>
+					<span>Verified Local Drivers</span>
+				</div>
+				<div class="trust-signal">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="trust-icon">
+						<path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+						<path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z" />
+					</svg>
+					<span>Pay Cash on Arrival</span>
+				</div>
+				<div class="trust-signal">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="trust-icon">
+						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+					</svg>
+					<span>24/7 Availability</span>
+				</div>
+			</div>
+			<div class="hero-cta">
+				<WhatsAppButton message="Hi! I'd like to book a shuttle service." label="Book Your Ride" />
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+		padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-2xl);
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+		pointer-events: none;
+	}
+	
+	.hero-container {
+		max-width: 900px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
+	}
+	
+	.hero-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-lg);
+	}
+	
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 800;
+		color: var(--color-text);
+		margin: 0;
+		line-height: 1.1;
+		background: linear-gradient(135deg, var(--color-text) 0%, var(--color-primary) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		letter-spacing: -0.03em;
+	}
+	
+	.hero-subtitle {
+		font-size: 1.75rem;
+		color: var(--color-primary);
+		font-weight: 600;
+		margin: 0;
+		letter-spacing: -0.01em;
+	}
+	
+	.hero-description {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+		max-width: 650px;
+		margin: 0;
+		line-height: 1.8;
+		font-weight: 400;
+	}
+	
+	.hero-trust-signals {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-xl);
+		justify-content: center;
+		margin: var(--spacing-lg) 0;
+		padding: var(--spacing-lg);
+		background: rgba(255, 255, 255, 0.7);
+		backdrop-filter: blur(10px);
+		border-radius: var(--border-radius-lg);
+		box-shadow: var(--shadow-md);
+	}
+	
+	.trust-signal {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		color: var(--color-text);
+		font-weight: 600;
+		font-size: 1rem;
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--border-radius);
+		transition: all 0.3s ease;
+	}
+	
+	.trust-signal:hover {
+		background: rgba(59, 130, 246, 0.1);
+		transform: translateY(-2px);
+	}
+	
+	.trust-icon {
+		width: 24px;
+		height: 24px;
+		color: var(--color-success);
+		flex-shrink: 0;
+	}
+	
+	.hero-cta {
+		margin-top: var(--spacing-lg);
+	}
+	
+	@media (max-width: 768px) {
+		.hero {
+			padding: var(--spacing-2xl) var(--spacing-sm) var(--spacing-xl);
+		}
+		
+		.hero-title {
+			font-size: 2.5rem;
+		}
+		
+		.hero-subtitle {
+			font-size: 1.5rem;
+		}
+		
+		.hero-description {
+			font-size: 1.1rem;
+		}
+		
+		.hero-trust-signals {
+			flex-direction: column;
+			gap: var(--spacing-md);
+			align-items: center;
+			padding: var(--spacing-md);
+		}
+		
+		.trust-signal {
+			font-size: 0.95rem;
+		}
+	}
+</style>
+
